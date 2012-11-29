@@ -5,7 +5,7 @@ class Fconfig
   
   constructor: (settings)->
     @env_default = settings.env_default ? 'default'
-    @env = process.NODE_ENV ? @env_default
+    @env = process.env.NODE_ENV ? @env_default
     @dir = settings.dir     if settings.dir
     
     if settings.config
