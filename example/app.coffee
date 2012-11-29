@@ -4,8 +4,8 @@ config = new config
   dir:         process.cwd() + '/example/' # Default is the /configs subfolder in your project
   env:         "production" # Defaults to process.env.NODE_ENV
   env_default: "development"
-
-# Get all config properties
+  
+# Get all config properties for current environment
 allconfig = config.get()
 
 # Get all config properties for a specific environment
@@ -15,3 +15,4 @@ prodconfig = config.get(false, "production")
 host = config.get "database.host"
 
 
+console.log allconfig

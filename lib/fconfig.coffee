@@ -24,7 +24,9 @@ class Fconfig
         @data[@env_default] = fc[@env_default]
         delete fc[@env_default]
       
-      @data[k] = @_merge(v, @_merge(@data[@env_default], {})) for k, v of fc
+      for k, v of fc
+        @data[k] = @_merge(@data[@env_default], v)
+        
       
   # Returns either of following
   # get() # All config properties
@@ -42,14 +44,17 @@ class Fconfig
     walker = (o, i) -> o[i]
     k.split(".").reduce walker, @data[env]
     
-  # Do a shallow copy of the first obj, overwritting the properties
-  # in the second
-  _merge: (a, b) ->
-    return b if typeof b isnt "object"
-    for k, v of a
-      b[k] = @_merge({}, v)
-      
-    b
+  _merge: (obj1, obj2) ->
+    
+    for prop of obj2
+      try
+        if obj2[prop].constructor is Object
+          obj1[prop] = @_merge(obj1[prop], obj2[prop])
+        else
+          obj1[prop] = obj2[prop]
+      catch err
+        obj1[prop] = obj2[prop]
 
-
+    obj1
+    
 module.exports = Fconfig
