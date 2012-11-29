@@ -48,6 +48,7 @@ Installation
 
 Roadmap
 ============
+* Deep merging of objects
 * Unit tests
 
 
