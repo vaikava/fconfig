@@ -10,7 +10,7 @@ class Fconfig
     
     if settings.config
       @files.push @dir + settings.config
-      do @parseConfigs
+      @parseConfigs()
   
   # Parse config files by extending non-default
   # Load our files in order, merge default values with environment-
@@ -24,8 +24,7 @@ class Fconfig
         @data[@env_default] = fc[@env_default]
         delete fc[@env_default]
       
-      for k, v of fc
-        @data[k] = @_merge( @_merge(v, {}), @_merge(@data[@env_default], {}) )
+      @data[k] = @_merge(v, @_merge(@data[@env_default], {})) for k, v of fc
       
   # Returns either of following
   # get() # All config properties
@@ -46,7 +45,11 @@ class Fconfig
   # Do a shallow copy of the first obj, overwritting the properties
   # in the second
   _merge: (a, b) ->
-    b[k] = v for k, v of a
+    return b if typeof b isnt "object"
+    for k, v of a
+      b[k] = @_merge({}, v)
+      
     b
+
 
 module.exports = Fconfig
