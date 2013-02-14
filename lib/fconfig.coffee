@@ -35,9 +35,14 @@ class Fconfig
   # get("parent.child") # Dot-notated nested property
   get: (k, env) ->
     env = env ? @env
+
     return @data[env] unless k
     return @_getDotNotated(k, env) if ~k.indexOf "."
-    @data[env][k]
+
+    if typeof @data[env][k] is 'function'
+      return @data[env][k]()
+    else
+      @data[env][k]
 
   # Returns a property from @data by dot notation
   _getDotNotated: (k, env) ->

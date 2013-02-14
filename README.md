@@ -18,23 +18,28 @@ environments such as `production` when `development` is set as your default envi
 Example configuration
 ============
 
-	# /configs/config.coffee
-	development: 
-	  sendEmails: false
-	  database:
-	    host: "127.0.0.1"
-		
-	# This block will extend the above "development" block so only
-	# specify what needs to differ here
-	production:
-	  database:
-	    host: "192.168.1.30"
+	module.exports = 
+		# /configs/config.coffee
+		development: 
+		  sendEmails: false
+		  database:
+		    host: "127.0.0.1"
 
-	# app.coffee
-	fconfig = require "fconfig"
-	config =  new fconfig
-	  config:      "config.coffee"
-	  env_default: "development" # Set the development-block as default
+		  # Just do "config.get "advancedStuff" and your closure is invoked
+		  # automatically!
+		  getAdvancedStuff: -> returnMath.random() + 10
+			
+		# This block will extend the above "development" block so only
+		# specify what needs to differ here
+		production:
+		  database:
+		    host: "192.168.1.30"
+
+		# app.coffee
+		fconfig = require "fconfig"
+		config =  new fconfig
+		  config:      "config.coffee"
+		  env_default: "development" # Set the development-block as default
 
 
 See the `example/app.coffee` file for more details.
