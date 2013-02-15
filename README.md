@@ -50,12 +50,6 @@ Installation
 	
 	npm install fconfig
 
-
-Roadmap
-============
-* Unit tests
-
-
 License
 ============
 See `LICENSE` file.

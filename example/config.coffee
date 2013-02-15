@@ -1,16 +1,16 @@
 module.exports = 
     
   development:
-    sendEmails: false
-    savePics:   false
-    
-    database:
-      host: "192.168.1.1"
-      db:   "myproject-dev"
-      
+    port: 3333
+    fn: -> return true
+
+    nested:
+      element: true
+
+  testing:
+    port: 4444
+
   production:
-    sendEmails: true
-    
-    database:
-      db: "myproject-production"
+    port: 5555
+
     

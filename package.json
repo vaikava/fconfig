@@ -1,24 +1,24 @@
 {
-	"name": "fconfig",
+	"name":        "fconfig",
 	"description": "featherlight configuration handler for node.js",
-	"keywords": ["config"],
-	"url": "http://www.vaikava.com",
-	"author": "Joakim B <joakim@theindustry.se>",
-	"contributors": [],
+	"keywords":    ["config"],
+	"url":         "http://www.vaikava.com",
+	"author":      "Joakim B <joakim@theindustry.se>",
 	"repository": {
 		"type": "git",
-		"url": "http://github.com/vaikava/fconfig.git"
+		"url":  "http://github.com/vaikava/fconfig.git"
 	},
-	"licenses": [{"type": "MIT"}
-	],
-	"version": "0.1.4",
+	"licenses": [{"type": "MIT"}],
+	"version": "0.1.5",
 	"engine": {
 		"node": ">=0.8.14"
 	},
 	"main": "./lib/fconfig.js",
 	"devDependencies": {
-		"coffee-script": "~1.3.3",
-		"mocha": "~1.4.2"
+		"chai":          "*",
+		"coffee-script": "*",
+		"coffeelint":    "*",
+		"mocha":         "*",
+		"sinon":         "*"
 	}
 }
-
