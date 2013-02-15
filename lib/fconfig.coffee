@@ -10,11 +10,12 @@ class Fconfig
     # Throw an error if we couldn't determine what env to pick
     # Last - override config path if we have given one
     @env_default = opts.env_default ? 'development'
-    
-    @env = opts.env ? process.env.NODE_ENV #? @env_default
 
-    if !@env
+
+    if !opts.env
       throw new Error "Couldn't determine current enviroment to base config upon"
+      
+    @env = opts.env
 
     @dir = opts.dir if opts.dir
     
