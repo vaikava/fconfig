@@ -9,7 +9,7 @@
 		"url":  "http://github.com/vaikava/fconfig.git"
 	},
 	"licenses": [{"type": "MIT"}],
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"engine": {
 		"node": ">=0.8.14"
 	},
