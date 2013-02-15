@@ -18,7 +18,6 @@
 		"chai":          "*",
 		"coffee-script": "*",
 		"coffeelint":    "*",
-		"mocha":         "*",
-		"sinon":         "*"
+		"mocha":         "*"
 	}
 }
